@@ -7,7 +7,8 @@ import pandas as pd
 
 
 def get_token(username, password):
-    url = "http://127.0.0.1:8000/api/token-auth/"
+    url = "https://agtechresearch.pythonanywhere.com/api/token-auth/"
+    #url = "http://127.0.0.1:8000/api/token-auth/"
 
     data = dict()
     data["username"] = username
@@ -39,7 +40,7 @@ def submit(competition_url, username, password, dataframe):
 
     # API 엔드포인트
     url = (
-        f"http://127.0.0.1:8000/api/competitions/submit/{competition_url}/"
+        f"https://agtechresearch.pythonanywhere.com/api/competitions/submit/{competition_url}/"
     )
 
     token = get_token(username, password)
@@ -90,11 +91,12 @@ def download_files(url, filename="data.zip"):
 
 
 def download_competition_files(
-    url="MNIST",
+    url="housingprice",
     use_competition_url=True,
 ):
     if use_competition_url:
-        target_url = f"http://127.0.0.1:8000/competitions/{url}/files/"
+        target_url = f"https://agtechresearch.pythonanywhere.com/competitions/{url}/files/"
+        #target_url = f"http://127.0.0.1:8000/competitions/{url}/files/"
     else:
         target_url = url
     download_files(target_url)
