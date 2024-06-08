@@ -66,7 +66,7 @@ def submit(competition_url, username, password, dataframe):
         print("오류 메시지:", response.json())
 
 
-def download_files(url, filename="data.zip"):
+def download_files(url, filename="dataset.zip"):
     # .zip 파일을 스트림 방식으로 다운로드하며 진행율 표시
     with requests.get(url, stream=True) as response:
         total_size_in_bytes = int(response.headers.get("content-length", 0))
@@ -91,7 +91,7 @@ def download_files(url, filename="data.zip"):
 
 
 def download_competition_files(
-    url="housingprice",
+    url="pestclassification",
     use_competition_url=True,
 ):
     if use_competition_url:
